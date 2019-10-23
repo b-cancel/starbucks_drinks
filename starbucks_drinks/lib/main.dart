@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:starbucks_drinks/frap.dart';
 import 'package:starbucks_drinks/helper/basic.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,83 +68,167 @@ class _DrinkListState extends State<DrinkList> {
           TextCard(
             "Grande Shots and Pumps",
           ),
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: <Widget>[
-                  Text("[+/-] cup size"),
-                  Expanded(
-                    child: Center(
-                      child: Text("EQUALS"),
-                    ),
-                  ),
-                  Text("[+/-] (shots and pumps)"),
-                ],
-              ),
-            ),
+          CupSizeChanges(),
+          TextCard(
+            "Anything Iced is poured to the 3rd line > ice is added",
           ),
           TextCard(
             "2% milk EXCEPT whole milk for fraps",
           ),
-          SpacedCard(
-            Column(
-              children: <Widget>[
-                Text("Skinny Version"),
-                Row(
-                  children: <Widget>[
-                    ActionButton(
-                      name: "Sugar Free Syrup",
-                      color: Colors.grey,
-                      onTap: (){},
-                    ),
-                    ActionButton(
-                      name: "Non Fat Milk",
-                      color: Colors.grey,
-                      onTap: (){},
-                    ),
-                    ActionButton(
-                      name: "No Whipped Cream",
-                      color: Colors.grey,
-                      onTap: (){},
-                    ),
-                  ],
-                )
-              ],
-            )
-          ),
-          SpacedCard(
-            Column(
-              children: <Widget>[
-                Text("-1 Pump (Subtractive)"),
-                Row(
-                  children: <Widget>[
-                    ActionButton(
-                      name: "Blonde Espresso",
-                      color: Colors.grey,
-                      onTap: (){},
-                    ),
-                    ActionButton(
-                      name: "Macchiatos",
-                      color: Colors.grey,
-                      onTap: (){},
-                    ),
-                    ActionButton(
-                      name: "Cappuccinos",
-                      color: Colors.grey,
-                      onTap: (){},
-                    ),
-                  ],
-                )
-              ],
-            )
-          ),
+          ShotsAndSyrups(),
+          SkinnyVersion(),
+          MinusPumps(),
           FrapSection(),
           ColdBrewSection(),
           IcedTeaSection(),
           RefresherSection(),
         ],
       )
+    );
+  }
+}
+
+class MinusPumps extends StatelessWidget {
+  const MinusPumps({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SpacedCard(
+      Column(
+        children: <Widget>[
+          Text("-1 Pump (Subtractive)"),
+          Row(
+            children: <Widget>[
+              ActionButton(
+                name: "Blonde Espresso",
+                color: Colors.grey,
+                onTap: (){},
+              ),
+              ActionButton(
+                name: "Macchiatos",
+                color: Colors.grey,
+                onTap: (){},
+              ),
+              ActionButton(
+                name: "Cappuccinos",
+                color: Colors.grey,
+                onTap: (){},
+              ),
+            ],
+          )
+        ],
+      )
+    );
+  }
+}
+
+class SkinnyVersion extends StatelessWidget {
+  const SkinnyVersion({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SpacedCard(
+      Column(
+        children: <Widget>[
+          Text("Skinny Version"),
+          Row(
+            children: <Widget>[
+              ActionButton(
+                name: "Sugar Free Syrup",
+                color: Colors.grey,
+                onTap: (){},
+              ),
+              ActionButton(
+                name: "Non Fat Milk",
+                color: Colors.grey,
+                onTap: (){},
+              ),
+              ActionButton(
+                name: "No Whipped Cream",
+                color: Colors.grey,
+                onTap: (){},
+              ),
+            ],
+          )
+        ],
+      )
+    );
+  }
+}
+
+class CupSizeChanges extends StatelessWidget {
+  const CupSizeChanges({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: <Widget>[
+            Text("[+/-] cup size"),
+            Expanded(
+              child: Center(
+                child: Text("EQUALS"),
+              ),
+            ),
+            Text("[+/-] (shots and pumps)"),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ShotsAndSyrups extends StatelessWidget {
+  const ShotsAndSyrups({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SpacedCard(
+      IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 8.0,
+                    ),
+                    child: Icon(FontAwesomeIcons.glassWhiskey),
+                  ),
+                  Text("2 shots\n- venti hot 2\n- Americanos +1")
+                ],
+              ),
+            ),
+            Expanded(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 8.0,
+                    ),
+                    child: Icon(FontAwesomeIcons.syringe),
+                  ),
+                  Text("4 pumps\n- venti cold 6/7\n")
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
