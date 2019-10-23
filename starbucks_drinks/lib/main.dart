@@ -547,13 +547,16 @@ class IcedTeaSection extends StatelessWidget {
       name: "Iced Tea",
       onTap: makeSnackBar(context, 
       "4 pumps liquid cane sugar\n"
-      "Juice Blend (none / peach / guava) > Tea > (water / lemonade)",
+      "Juice Blend (none / peach / guava / blueberry) > Tea > (water / lemonade)",
       ),
       //black, green, passion tango, white
       items: ["Black", "Green", "Passion Tango", "White"],
       colors: [Colors.black, Colors.green, Colors.red, Colors.white],
       onTaps: [
-        (){Scaffold.of(context).hideCurrentSnackBar();},
+        makeSnackBar(
+          context, 
+          "Blueberry Black",
+        ),
         (){Scaffold.of(context).hideCurrentSnackBar();},
         (){Scaffold.of(context).hideCurrentSnackBar();},
         (){Scaffold.of(context).hideCurrentSnackBar();},

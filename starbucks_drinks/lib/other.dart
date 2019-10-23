@@ -49,14 +49,6 @@ class Other extends StatelessWidget {
             subtitle: "- (Regular / Blonde) Espresso 3 shots",
           ),
           MyListTile(
-            color: Colors.blue, 
-            title: "Blueberry black", 
-            subtitle: "- Blueberry flavored juice blend\n"
-            + "- black tea\n"
-            + "- 4 pumps of liquid cane sugar\n"
-            + "- Lemonade Version",
-          ),
-          MyListTile(
             color: Colors.red, 
             title: "Caramel apple spice (steamed)", 
             subtitle: "- 4 cinnamon dolce\n"
