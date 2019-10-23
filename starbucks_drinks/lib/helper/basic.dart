@@ -68,19 +68,21 @@ class ActionButton extends StatelessWidget {
     this.color,
     this.name,
     this.onTap,
+    this.zeroPadding: false,
     Key key,
   }) : super(key: key);
 
   final Color color;
   final String name;
   final Function onTap;
+  final bool zeroPadding;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(
-          4,
+        padding: EdgeInsets.all(
+          zeroPadding ? 0 : 4,
         ),
         child: RaisedButton(
           padding: EdgeInsets.all(4),
