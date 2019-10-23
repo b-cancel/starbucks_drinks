@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:starbucks_drinks/frap.dart';
 import 'package:starbucks_drinks/helper/basic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:starbucks_drinks/other.dart';
 
 void main() => runApp(MyApp());
 
@@ -78,10 +79,25 @@ class _DrinkListState extends State<DrinkList> {
           ShotsAndSyrups(),
           SkinnyVersion(),
           MinusPumps(),
+          LattesDrinksSection(),
+          MacchiatosSection(),
           FrapSection(),
           ColdBrewSection(),
           IcedTeaSection(),
           RefresherSection(),
+          SpacedCard(
+            InkWell(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Other(),
+                  ),
+                );
+              },
+              child: Text("Other"),
+            )
+          ),
         ],
       )
     );
@@ -334,6 +350,108 @@ class FrapSection extends StatelessWidget {
   }
 }
 
+class LattesDrinksSection extends StatelessWidget {
+  const LattesDrinksSection({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new BasicSection(
+      name: "Lattes / Drinks\n"
+      + "[hot / iced]\n"
+      + "(coffee / none)\n"
+      + "w/ whip",
+      onTap: makeSnackBar(context, 'syrups > shots > milk to 87 degrees'),
+      items: ["Mocha", "Pumpkin", "Cinnamon Dolce", "Vanilla", "Salted Caramel"],
+      colors: [Colors.black, Colors.orange, Colors.brown, Colors.white, Colors.grey],
+      onTaps: [
+        makeSnackBar(
+          context, 
+          "[regular / white] (mocha / chocolate)\n"
+          + "- 4 [regular / white] mocha sauce\n"
+          + "- only chocolate (1 vanilla, mocha drizzle)",
+        ),
+        makeSnackBar(
+          context, 
+          "Pumpkin spice (latte / creme)\n"
+          + "- 4 Pumpkin syrup\n"
+          + "- Pumpkin spice topping",
+        ),
+        makeSnackBar(
+          context, 
+          "Cinnamon dolce (latte / creme)\n"
+          + "- 4 Cinnamon dolce syrup\n"
+          + "- Cinnamon dolce sprinkles",
+        ),
+        makeSnackBar(
+          context, 
+          "Salted Caramel (mocha / chocolate)\n"
+          + "- 4 mocha sauce\n"
+          + "- 4 toffee nut syrup\n"
+          + "- 1 vanilla syrup (only for chocolate)\n"
+          + "- caramel drizzle\n"
+          + "- sea salt",
+        ),
+        makeSnackBar(
+          context, 
+          "4 Vanilla (latte / creme)\n"
+          + "- Vanilla syrup",
+        ),
+      ],
+    );
+  }
+}
+
+class MacchiatosSection extends StatelessWidget {
+  const MacchiatosSection({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new BasicSection(
+      name: "Macchiatos\n"
+      + "[hot / iced]",
+      onTap: makeSnackBar(
+        context,
+        "Cloud Formulas\n"
+        + "- 100 / 150 / 200 ml 2%\n"
+        + "- 1 / 2 / [2/3] vanilla pumps\n"
+        + "syrups > milk to 87 degrees > shots",
+      ),
+      items: ["Espresso", "Caramel", "Cocoa Cloud", "Caramel Cloud"],
+      colors: [Colors.black, Color(0xFFFFD59A), Colors.brown, Color(0xFFFFD59A)],
+      onTaps: [
+        makeSnackBar(
+          context, 
+          "Espresso\n"
+          + "- nothing extra added",
+        ),
+        makeSnackBar(
+          context, 
+          "Caramel\n"
+          + "- 3 vanilla pumps\n"
+          + "- caramel drizzle",
+        ),
+        makeSnackBar(
+          context, 
+          "Cocoa Cloud\n"
+          + "- 2 toffee nut (blonde 1)\n"
+          + "- caramel drizzle\n"
+          + "- mocha drizzle",
+        ),
+        makeSnackBar(
+          context, 
+          "Caramel Cloud\n"
+          + "- 2 vanilla (blonde 1)\n"
+          + "- caramel drizzle",
+        ),
+      ],
+    );
+  }
+}
+
 class RefresherSection extends StatelessWidget {
   const RefresherSection({
     Key key,
@@ -416,9 +534,10 @@ class ColdBrewSection extends StatelessWidget {
             padding: EdgeInsets.all(16),
             color: Colors.yellow,
             child: Text(
-              "Cream Formulas\n"
-              + "3 wetter / 4 dryer\n"
-              + "1 / 2 / [2/3]",
+              "Cold Foam Formulas\n"
+              + "- 100 / 150 / 200 ml\n"
+              + "- 1 / 2 / [2/3] pumps\n"
+              + "- (3 wetter / 4 dryer)",
             ),
           ), 
           Column(

@@ -79,6 +79,11 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool blackText = color == Colors.white 
+    || color == Colors.yellow 
+    || color == Color(0xFFFFD59A);
+
+    //build
     return Expanded(
       child: Padding(
         padding: EdgeInsets.all(
@@ -91,7 +96,7 @@ class ActionButton extends StatelessWidget {
           child: Text(
             name,
             style: TextStyle(
-              color: (color == Colors.white || color == Colors.yellow) ? Colors.black : Colors.white,
+              color: blackText ? Colors.black : Colors.white,
             ),
           ),
         ),

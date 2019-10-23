@@ -171,6 +171,7 @@ class CoffeeAndCreme extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
         onPressed: (){
           Navigator.of(context).pop();
         },
