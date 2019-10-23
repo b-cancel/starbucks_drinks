@@ -25,14 +25,14 @@ class OnlyCreme extends StatelessWidget {
           MyListTile(
             color: Colors.amber, 
             title: "Chai", 
-            subtitle: "- 2 pumps chai\n"
+            subtitle: "- [2] / 2 pumps chai\n"
               + "- cinnamon powder",
           ),
           MyListTile(
             color: Colors.lightGreen, 
             title: "Match Green Tea", 
-            subtitle: "- 3 pumps classic\n"
-              + "- 3 scoops matcha powder"
+            subtitle: "- [3] pumps classic\n"
+              + "- [3] scoops matcha powder"
           ),
         ],
       ),
@@ -110,32 +110,32 @@ class CoffeeAndCreme extends StatelessWidget {
           MyListTile(
             color: Colors.orange, 
             title: "Pumpkin Spice (Creme)", 
-            subtitle: "- 2 pumpkin pumps\n"
+            subtitle: "- [2] / 2 pumpkin pumps\n"
             + "- pumpkin spice topping",
-          ),
-          MyListTile(
-            color: Color(0xFFF3E5AB), 
-            title: "Caffee Vanilla [coffee] / Vanilla Bean [creme]", 
-            subtitle: "- 3 scoop vanilla bean powder",
-          ),
-          MyListTile(
-            color: Colors.brown,
-            title: "(White) Mocha [coffee] / (White) Chocolate [creme]",
-            subtitle: "- 3 (white) mocha sauce\n"
-            + "(Java [coffee] / Double Chocolaty [creme]) Chip\n"
-            + "- ADD 3 scoops frap chips\n"
-            + "- ADD mocha drizzle\n"
-            + "(Mocha [coffee] / Chocolate [creme]) Cookie Crumble\n"
-            + "- ADD cookie crumble topping",
-            whiteText: true,
           ),
           MyListTile(
             color: Color(0xFFFFD59A), 
             title: "Salted Caramel Mocha (Creme)", 
-            subtitle: "- 2 mocha pumps\n"
-            + "- 2 toffee pumps\n"
+            subtitle: "- [2] / 2 mocha pumps\n"
+            + "- [2] / 2 toffee pumps\n"
             + "- caramel drizzle\n"
             + "- smooked sea salt",
+          ),
+          MyListTile(
+            color: Color(0xFFF3E5AB), 
+            title: "Caffee Vanilla [coffee] / Vanilla Bean [creme]", 
+            subtitle: "- [3] scoop vanilla bean powder",
+          ),
+          MyListTile(
+            color: Colors.brown,
+            title: "(White) Mocha [coffee] / (White) Chocolate [creme]",
+            subtitle: "- [3] (white) mocha sauce\n"
+            + "(Java [coffee] / Double Chocolaty [creme]) Chip\n"
+            + "- ADD [3] scoops frap chips\n"
+            + "- ADD mocha drizzle\n"
+            + "(Mocha [coffee] / Chocolate [creme]) Cookie Crumble\n"
+            + "- ADD cookie crumble topping",
+            whiteText: true,
           ),
           TextCard(
             "Only Coffee [roast > coffee]"
@@ -151,14 +151,14 @@ class CoffeeAndCreme extends StatelessWidget {
             color: Colors.black, 
             title: "Espresso", 
             subtitle: "- No Pumps\n"
-            + "- 1 shot expresso\n"
+            + "- always 1 shot expresso\n"
             + "- NO WHIP",
             whiteText: true,
           ),
           MyListTile(
             color: Color(0xFFFFD59A), 
             title: "Caramel", 
-            subtitle: "- 3 pumps caramel\n"
+            subtitle: "- [3] pumps caramel\n"
             + "- caramel drizzle"
           ),
           MyListTile(

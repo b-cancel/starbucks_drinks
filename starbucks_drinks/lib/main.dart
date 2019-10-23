@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:starbucks_drinks/other.dart';
 
 void main() => runApp(MyApp());
+//venti hot SHOTS same as grande (Except americanos)
+//cold grande to venti +2 pump jump
 
 class MyApp extends StatelessWidget {
   @override
@@ -77,12 +79,6 @@ class _DrinkListState extends State<DrinkList> {
             "2% milk EXCEPT whole milk for fraps",
           ),
           ShotsAndSyrups(),
-          TextCard(
-            "(Regular / Blonde) Americanos +1 shot"
-          ),
-          TextCard(
-            "(Regular / Blonde) Capuccino still 2 shots"
-          ),
           SkinnyVersion(),
           MinusPumps(),
           LattesDrinksSection(),
@@ -233,7 +229,8 @@ class ShotsAndSyrups extends StatelessWidget {
                   ),
                   Text(
                     "2 shots\n"
-                    + "- venti hot 2"
+                    + "- venti hot 2\n"
+                    + "- Americanos +1",
                   ),
                 ],
               ),
@@ -248,7 +245,10 @@ class ShotsAndSyrups extends StatelessWidget {
                     ),
                     child: Icon(FontAwesomeIcons.syringe),
                   ),
-                  Text("4 pumps\n- venti cold 6/7")
+                  Text(
+                    "4 pumps\n"
+                    + "- venti cold 6/7\n"
+                  ),
                 ],
               ),
             ),
@@ -390,7 +390,7 @@ class TeaLatteSection extends StatelessWidget {
         makeSnackBar(
           context, 
           "- 4 pumps vanilla\n"
-          + "- 2 tea bags",
+          + "- 2 tea bags [black]",
         ),
         makeSnackBar(
           context, 
@@ -399,13 +399,13 @@ class TeaLatteSection extends StatelessWidget {
         ),
         makeSnackBar(
           context, 
-          "- 4 pumps chai\n"
+          "- [4] / (hot 5 | cold 6) pumps chai\n"
           + "- water",
         ),
         makeSnackBar(
           context, 
           "- 4 pumps liquid cane\n"
-          + "- 2 tea bags\n"
+          + "- 2 tea bags [black]\n"
           + "- water",
         ),
       ],
@@ -527,7 +527,8 @@ class RefresherSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return new BasicSection(
       name: "Refreshers",
-      onTap: makeSnackBar(context, 'Tea > (water / lemonade / coconut milk) > ice'),
+      onTap: makeSnackBar(
+        context, 'Tea > (water / lemonade / coconut milk) > ice > fruit (trenta 2)'),
       items: ["Mango Dragon Fruit", "Strawberry Acai", "Very Berry Hibiscus"],
       colors: [Colors.red, Colors.pink, Colors.purple],
       onTaps: [
@@ -549,7 +550,7 @@ class IcedTeaSection extends StatelessWidget {
     return new BasicSection(
       name: "Iced Tea",
       onTap: makeSnackBar(context, 
-      "4 pumps liquid cane sugar\n"
+      "[4] / 6 pumps liquid cane sugar\n"
       "Juice Blend (none / peach / guava / blueberry) > Tea > (water / lemonade)",
       ),
       //black, green, passion tango, white
