@@ -108,25 +108,34 @@ class CoffeeAndCreme extends StatelessWidget {
             "Coffee [roast > coffee] and Creme [creme]"
           ),
           MyListTile(
-            color: Colors.grey, 
+            color: Colors.orange, 
             title: "Pumpkin Spice (Creme)", 
             subtitle: "- 2 pumpkin pumps\n"
             + "- pumpkin spice topping",
           ),
           MyListTile(
-            color: Colors.grey, 
+            color: Color(0xFFF3E5AB), 
+            title: "Caffee Vanilla [coffee] / Vanilla Bean [creme]", 
+            subtitle: "- 3 scoop vanilla bean powder",
+          ),
+          MyListTile(
+            color: Colors.brown,
+            title: "(White) Mocha [coffee] / (White) Chocolate [creme]",
+            subtitle: "- 3 (white) mocha sauce\n"
+            + "(Java [coffee] / Double Chocolaty [creme]) Chip\n"
+            + "- ADD 3 scoops frap chips\n"
+            + "- ADD mocha drizzle\n"
+            + "(Mocha [coffee] / Chocolate [creme]) Cookie Crumble\n"
+            + "- ADD cookie crumble topping",
+            whiteText: true,
+          ),
+          MyListTile(
+            color: Color(0xFFFFD59A), 
             title: "Salted Caramel Mocha (Creme)", 
             subtitle: "- 2 mocha pumps\n"
             + "- 2 toffee pumps\n"
-            + "- pumpkin spice topping",
-          ),
-          MyListTile(
-            color: Colors.grey, 
-            title: "(Mocha [coffee] / Chocolate [creme]) Cookie Crumble", 
-            subtitle: "- 3 scoops frap chips\n"
-            + "- 3 mocha sauce\n"
-            + "- mocha drizzle\n"
-            + "- cookie crumble topping",
+            + "- caramel drizzle\n"
+            + "- smooked sea salt",
           ),
           TextCard(
             "Only Coffee [roast > coffee]"
@@ -150,10 +159,10 @@ class CoffeeAndCreme extends StatelessWidget {
             color: Color(0xFFFFD59A), 
             title: "Caramel", 
             subtitle: "- 3 pumps caramel\n"
-            + "- caramel drizzle\n"
+            + "- caramel drizzle"
           ),
           MyListTile(
-            color: Color(0xFFFFD59A), 
+            color: Color(0xFFF3E5AB), 
             title: "Caramel Ribbon Crunch", 
             subtitle: "- NO PUMPS CARAMEL\n"
             + "- caramel drizzle\n"

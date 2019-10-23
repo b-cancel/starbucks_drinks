@@ -17,14 +17,19 @@ class MyApp extends StatelessWidget {
 Function makeSnackBar(BuildContext context, String text){
   return (){
     final snackBar = SnackBar(
-      content: Text(text),
+      content: InkWell(
+        onTap: (){
+          Scaffold.of(context).hideCurrentSnackBar();
+        },
+        child: Text(text),
+      ),
     );
     Scaffold.of(context).hideCurrentSnackBar();
     Scaffold.of(context).showSnackBar(snackBar);
   };
 }
 
-Function makePopUp(BuildContext context, String title, String body){
+Function makePopUp(BuildContext context, Widget title, Widget body){
   return () {
     Scaffold.of(context).hideCurrentSnackBar();
     showDialog(
@@ -32,12 +37,11 @@ Function makePopUp(BuildContext context, String title, String body){
       builder: (BuildContext context) {
         // return object of type Dialog
         return SimpleDialog(
-          title: new Text(title),
+          titlePadding: EdgeInsets.all(0),
+          contentPadding: EdgeInsets.all(0),
+          title: title,
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(24),
-              child: Text(body),
-            ),
+            body,
           ],
         );
       },
@@ -211,14 +215,35 @@ class FrapSection extends StatelessWidget {
             ),
           );
         },
-        (){
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => OnlyCreme(),
-            ),
-          );
-        },
+        makePopUp(
+          context, 
+          Container(
+            padding: EdgeInsets.all(16),
+            color: Colors.yellow,
+            child: Text("Only Creme"),
+          ), 
+          Column(
+            children: <Widget>[
+              MyListTile(
+                color: Colors.red, 
+                title: "Strawberry", 
+                subtitle: "- strawberry purre in mix, and on top",
+              ),
+              MyListTile(
+                color: Colors.amber, 
+                title: "Chai", 
+                subtitle: "- 2 pumps chai\n"
+                  + "- cinnamon powder",
+              ),
+              MyListTile(
+                color: Colors.lightGreen, 
+                title: "Match Green Tea", 
+                subtitle: "- 3 pumps classic\n"
+                  + "- 3 scoops matcha powder"
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -294,32 +319,52 @@ class ColdBrewSection extends StatelessWidget {
       ],
       colors: [
         Colors.black, 
-        Colors.black,
-        Colors.black,
-        Colors.black,
-        Colors.black,
+        Colors.orange,
+        Colors.brown,
+        Colors.white,
+        Colors.grey,
       ],
       onTaps: [
-        makeSnackBar(
+        makePopUp(
           context, 
-          //"(non fat / sweet creme) blended\n"
-          "3 wetter / 4 dryer\n"
-          + "1 / 2 / [2/3]\n\n"
-
-          + "Regular\n"
-          + "- nonfat milk\n\n"
-
-          + "Pumpkin Cream\n"
-          + "- sweet cream\n"
-          + "- pumpkin sauce\n\n"
-
-          + "Salted Cream\n"
-          + "- sweet cream\n"
-          + "- salt packets\n\n"
-
-          + "Cascara\n"
-          + "- nonfat milk\n"
-          + "- cascara syrup"
+          Container(
+            padding: EdgeInsets.all(16),
+            color: Colors.yellow,
+            child: Text(
+              "Cream Formulas\n"
+              + "3 wetter / 4 dryer\n"
+              + "1 / 2 / [2/3]",
+            ),
+          ), 
+          Column(
+            children: <Widget>[
+            //Cream Formulas
+              MyListTile(
+                color: Colors.white, 
+                title: "Regular", 
+                subtitle: "- non fat milk",
+              ),
+              MyListTile(
+                color: Colors.amber, 
+                title: "Pumpkin", 
+                subtitle: "- sweet cream\n"
+                + "- pumpkin sauce",
+              ),
+              MyListTile(
+                color: Colors.grey, 
+                title: "Salted", 
+                subtitle: "- sweet cream\n"
+                + "- salt packets"
+              ),
+              MyListTile(
+                color: Colors.brown, 
+                title: "Cascara", 
+                subtitle: "- nonfat milk\n"
+                + "- cascara syrup",
+                whiteText: true,
+              ),
+            ],
+          ),
         ),
         /*
         "Pumpkin 2V"
