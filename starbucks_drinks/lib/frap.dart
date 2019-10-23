@@ -7,9 +7,7 @@ class OnlyCreme extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.yellow,
-        leading: BackButton(
-          color: Colors.black,
-        ),
+        automaticallyImplyLeading: false,
         title: Text(
           "Only Creme Frap",
           style: TextStyle(
@@ -37,6 +35,12 @@ class OnlyCreme extends StatelessWidget {
               + "- 3 scoops matcha powder"
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.of(context).pop();
+        },
+        child: Icon(Icons.arrow_back),
       ),
     );
   }
@@ -90,6 +94,7 @@ class CoffeeAndCreme extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown,
+        automaticallyImplyLeading: false,
         title: Text(
           "Coffee and Creme Frap",
           style: TextStyle(
@@ -100,7 +105,7 @@ class CoffeeAndCreme extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           TextCard(
-            "Coffee and Creme"
+            "Coffee [roast > coffee] and Creme [creme]"
           ),
           MyListTile(
             color: Colors.grey, 
@@ -124,7 +129,7 @@ class CoffeeAndCreme extends StatelessWidget {
             + "- cookie crumble topping",
           ),
           TextCard(
-            "Only Coffee"
+            "Only Coffee [roast > coffee]"
           ),
           MyListTile(
             color: Colors.brown,
@@ -155,6 +160,12 @@ class CoffeeAndCreme extends StatelessWidget {
             + "- caramel crunch topping",
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.of(context).pop();
+        },
+        child: Icon(Icons.arrow_back),
       ),
     );
   }
