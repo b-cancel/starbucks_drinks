@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:starbucks_drinks/frap.dart';
 import 'package:starbucks_drinks/helper/basic.dart';
 
 void main() => runApp(MyApp());
@@ -133,6 +134,7 @@ class _DrinkListState extends State<DrinkList> {
               ],
             )
           ),
+          FrapSection(),
           ColdBrewSection(),
           IcedTeaSection(),
           RefresherSection(),
@@ -172,6 +174,52 @@ class SpacedCard extends StatelessWidget {
         padding: EdgeInsets.all(8),
         child: child,
       ),
+    );
+  }
+}
+
+class FrapSection extends StatelessWidget {
+  const FrapSection({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new BasicSection(
+      name: "Fraps",
+      onTap: makeSnackBar(
+        context, 
+        "Any othery syrup 2 pumps\n"
+        + "Whip EXCEPT coffee and expresso frap\n"
+        + '(Roast) > whole milk to 1st > syrups > ice > (coffee / creme)',
+      ),
+      items: [
+        "Coffee and Creme", 
+        //only creme multilined
+        "ONLY Creme\n"
+        + "- Strawberry\n"
+        + "- Chai\n"
+        + "- Match Green Tea",
+      ],
+      colors: [Colors.brown, Colors.yellow],
+      onTaps: [
+        (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CoffeeAndCreme(),
+            ),
+          );
+        },
+        (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OnlyCreme(),
+            ),
+          );
+        },
+      ],
     );
   }
 }
