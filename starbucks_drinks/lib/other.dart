@@ -46,29 +46,7 @@ class Other extends StatelessWidget {
           MyListTile(
             color: Colors.white, 
             title: "Flat White (ristretto > whole milk > [steam / ice])", 
-            subtitle: "- Regular Espresso 2 shots\n"
-            + "- Blonde Espresso 3 shots",
-          ),
-          MyListTile(
-            color: Colors.grey, 
-            title: "London fog tea latte (no water, steamed milk)", 
-            subtitle: "- 4 pumps vanilla",
-          ),
-          MyListTile(
-            color: Colors.lightGreen, 
-            title: "[Hot / Iced] Matcha Green Tea Latte (no water, steamed milk)", 
-            subtitle: "- 3 matcha powder\n"
-            + "- Lemonade Version",
-          ),
-          MyListTile(
-            color: Colors.grey, 
-            title: "Chai tea latte (water, steamed milk)", 
-            subtitle: "- 4 pumps chai",
-          ),
-          MyListTile(
-            color: Colors.grey, 
-            title: "Royal English breakfast tea latte (water, steamed milk)", 
-            subtitle: "- 4 pumps liquid cane",
+            subtitle: "- (Regular / Blonde) Espresso 3 shots",
           ),
           MyListTile(
             color: Colors.blue, 
@@ -89,7 +67,12 @@ class Other extends StatelessWidget {
             color: Colors.yellow,
             title: "Honey citrus mint tea AND Citrus defender",
             subtitle: "- have 2 packets of honey",
-          )
+          ),
+          MyListTile(
+            color: Colors.grey,
+            title: "Caffee Misto",
+            subtitle: "- 50/50, 2% milk / coffee",
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

@@ -77,11 +77,18 @@ class _DrinkListState extends State<DrinkList> {
             "2% milk EXCEPT whole milk for fraps",
           ),
           ShotsAndSyrups(),
+          TextCard(
+            "(Regular / Blonde) Americanos +1 shot"
+          ),
+          TextCard(
+            "(Regular / Blonde) Capuccino still 2 shots"
+          ),
           SkinnyVersion(),
           MinusPumps(),
           LattesDrinksSection(),
           MacchiatosSection(),
           FrapSection(),
+          TeaLatteSection(),
           ColdBrewSection(),
           IcedTeaSection(),
           RefresherSection(),
@@ -224,7 +231,10 @@ class ShotsAndSyrups extends StatelessWidget {
                     ),
                     child: Icon(FontAwesomeIcons.glassWhiskey),
                   ),
-                  Text("2 shots\n- venti hot 2\n- Americanos +1")
+                  Text(
+                    "2 shots\n"
+                    + "- venti hot 2"
+                  ),
                 ],
               ),
             ),
@@ -238,7 +248,7 @@ class ShotsAndSyrups extends StatelessWidget {
                     ),
                     child: Icon(FontAwesomeIcons.syringe),
                   ),
-                  Text("4 pumps\n- venti cold 6/7\n")
+                  Text("4 pumps\n- venti cold 6/7")
                 ],
               ),
             ),
@@ -344,6 +354,59 @@ class FrapSection extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ],
+    );
+  }
+}
+
+class TeaLatteSection extends StatelessWidget {
+  const TeaLatteSection({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new BasicSection(
+      name: "Tea Latte",
+      onTap: makeSnackBar(
+        context, 
+        "[Hot / Iced]\n"
+        + "all with steamed milk"
+      ),
+      items: [
+        "London\nFog",
+        "Matcha\nGreen",
+        "Chai",
+        "Royal\nEnglish\nBreakfast"
+      ],
+      colors: [
+        Colors.grey, 
+        Colors.lightGreen,
+        Colors.yellow,
+        Colors.brown,
+      ],
+      onTaps: [
+        makeSnackBar(
+          context, 
+          "- 4 pumps vanilla\n"
+          + "- 2 tea bags",
+        ),
+        makeSnackBar(
+          context, 
+          "- 3 matcha powder\n"
+          + "- Lemonade Version",
+        ),
+        makeSnackBar(
+          context, 
+          "- 4 pumps chai\n"
+          + "- water",
+        ),
+        makeSnackBar(
+          context, 
+          "- 4 pumps liquid cane\n"
+          + "- 2 tea bags\n"
+          + "- water",
         ),
       ],
     );
