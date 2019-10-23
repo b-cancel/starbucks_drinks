@@ -422,8 +422,8 @@ class LattesDrinksSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return new BasicSection(
       name: "Lattes / Drinks\n"
-      + "[hot / iced]\n"
       + "(coffee / none)\n"
+      + "[hot / iced]\n"
       + "w/ whip",
       onTap: makeSnackBar(context, 'syrups > shots > milk to 87 degrees'),
       items: ["Mocha", "Pumpkin", "Cinnamon Dolce", "Vanilla", "Salted Caramel"],
@@ -433,7 +433,9 @@ class LattesDrinksSection extends StatelessWidget {
           context, 
           "[regular / white] (mocha / chocolate)\n"
           + "- 4 [regular / white] mocha sauce\n"
-          + "- only chocolate (1 vanilla, mocha drizzle)",
+          + "- only for regular chocolate\n"
+          + "\t\t\t- 1 vanilla\n"
+          + "\t\t\t- mocha drizzle",
         ),
         makeSnackBar(
           context, 
@@ -449,17 +451,17 @@ class LattesDrinksSection extends StatelessWidget {
         ),
         makeSnackBar(
           context, 
+          "Vanilla (latte / creme)\n"
+          + "- 4 Vanilla syrup",
+        ),
+        makeSnackBar(
+          context, 
           "Salted Caramel (mocha / chocolate)\n"
           + "- 4 mocha sauce\n"
           + "- 4 toffee nut syrup\n"
           + "- 1 vanilla syrup (only for chocolate)\n"
           + "- caramel drizzle\n"
           + "- sea salt",
-        ),
-        makeSnackBar(
-          context, 
-          "4 Vanilla (latte / creme)\n"
-          + "- Vanilla syrup",
         ),
       ],
     );
@@ -481,6 +483,7 @@ class MacchiatosSection extends StatelessWidget {
         "Cloud Formulas\n"
         + "- 100 / 150 / 200 ml 2%\n"
         + "- 1 / 2 / [2/3] vanilla pumps\n"
+        + "- 2 / 3 / 4 scoops of cloud powder\n"
         + "syrups > milk to 87 degrees > shots",
       ),
       items: ["Espresso", "Caramel", "Cocoa Cloud", "Caramel Cloud"],
@@ -658,15 +661,15 @@ class ColdBrewSection extends StatelessWidget {
         ),
         makeSnackBar(
           context, 
-          "w/ Salted Cream Cold Foam\n"
-          + "- [4] Caramel\n"
-          + "- Salted cold foam"
-        ),
-        makeSnackBar(
-          context, 
           "w/ Vanilla Sweet Cream Cold Brew\n" 
           + "- [4] Vanilla\n"
           + "- Splash of sweet cream"
+        ),
+        makeSnackBar(
+          context, 
+          "w/ Salted Cream Cold Foam\n"
+          + "- [4] Caramel\n"
+          + "- Salted cold foam"
         ),
       ],
     );

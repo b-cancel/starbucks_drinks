@@ -36,6 +36,12 @@ class Other extends StatelessWidget {
             whiteText: true,
           ),
           MyListTile(
+            color: Colors.brown, 
+            title: "Iced (Regular / Blonde) Caffee Latte", 
+            subtitle: "- 2 shots blend",
+            whiteText: true,
+          ),
+          MyListTile(
             color: Colors.black, 
             title: "Doubleshot on ice", 
             subtitle: "- 3 shots\n"
