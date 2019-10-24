@@ -1,34 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:starbucks_drinks/frap.dart';
-import 'package:starbucks_drinks/main.dart';
-
-//---------------Hot Teas
-//tea bags 1/1/[2]/2---------------
-//- Teavana Chai Tea
-//- Earl Grey Black Tea
-//- Royal English Breakfast Black Tea
-//- Rev Up Wellness Brewed Tea
-//- Emperor's Cloud and Mist Green Tea
-//- Jade Citrus Mint Brewed Tea
-//- Mint Majesty Herbal Tea
-//- Peach Tranquility Herbal Tea
-//- Comfort Wellness Brewed Tea
-//- Defense Wellness Brewed Tea
-//w/ honey 1/1/[2]/2---------------
-//- Honey Citrus Mint Tea (with Honey AND Lemonade)
-//- Citrus Defender (with Honey AND Lemonade)
-
-
-
-//SEPERATE (no tea bags)
-//- Chai Tea Latte
-//- Match Green Tea Latte
-//SEPERATE (with tea bags [from above])
-//- London Fog Tea Latte ([4] vanilla syrup)
-//- Royal English Breakfast Tea Latte ([4] liquid cane syrup)
-
-//iced teas
-//liquid cane sugar 3/[4]/6/7
 
 class Other extends StatelessWidget {
   @override
@@ -46,15 +17,6 @@ class Other extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          TextCard(
-            "Tea Bags: [2] / 2"
-          ),
-          TextCard(
-            "Iced Tea: uses ice and milk"
-          ),
-          TextCard(
-            "Hot Tea: uses water and steamed milk"
-          ),
           MyListTile(
             color: Colors.brown, 
             title: "Iced Coffee", 
@@ -88,11 +50,6 @@ class Other extends StatelessWidget {
             subtitle: "- [4] cinnamon dolce\n"
             + "- caramel drizzle \n"
             + "- whip",
-          ),
-          MyListTile(
-            color: Colors.yellow,
-            title: "Honey citrus mint tea AND Citrus defender",
-            subtitle: "- 1 / 1 / [2] / 2 honey",
           ),
           MyListTile(
             color: Colors.grey,

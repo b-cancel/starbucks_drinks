@@ -25,7 +25,7 @@ class OnlyCreme extends StatelessWidget {
           MyListTile(
             color: Colors.amber, 
             title: "Chai", 
-            subtitle: "- [2] / 2 pumps chai\n"
+            subtitle: "- [2]/2 pumps chai\n"
               + "- cinnamon powder",
           ),
           MyListTile(
@@ -105,7 +105,7 @@ class CoffeeAndCreme extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           TextCard(
-            "Coffee [roast > coffee] and Creme [creme]"
+            "Coffee 2/[3]/4 roast & Creme creme"
           ),
           MyListTile(
             color: Colors.orange, 

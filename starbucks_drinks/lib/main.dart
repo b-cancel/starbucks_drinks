@@ -4,9 +4,23 @@ import 'package:starbucks_drinks/helper/basic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:starbucks_drinks/other.dart';
 
+//STRANGE
+//- Starbucks Blonde Caffe Latte
+//- Starbucks Blonde Vanilla Latte
+//- iced coffee
+
+//TAKEN CARE OFF
+//- Hot Teas
+//- Fraps
+//- Iced Teas
+//- Cold Drinks
+//- Hot Coffees
+//- Hot Drinks
+
+//TAKE CARE OFF
+//- Cold Coffees (iced lattes, iced macchiatos, iced mochas)
+
 void main() => runApp(MyApp());
-//venti hot SHOTS same as grande (Except americanos)
-//cold grande to venti +2 pump jump
 
 class MyApp extends StatelessWidget {
   @override
@@ -68,23 +82,53 @@ class _DrinkListState extends State<DrinkList> {
     return Scaffold(
       body: ListView(
         children: <Widget>[
-          TextCard(
-            "Grande Shots and Pumps",
+          Card(
+            color: Colors.black,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                TextCard(
+                  "Grande Shots and Pumps",
+                ),
+                CupSizeChanges(),
+                TextCard(
+                  "Anything Iced is poured to the 3rd line > ice is added",
+                ),
+                TextCard(
+                  "2% milk EXCEPT whole milk for fraps",
+                ),
+                ShotsAndSyrups(),
+                SkinnyVersion(),
+                MinusPumps(),
+                Card(
+                  color: Colors.red,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      TextCard(
+                        "all iced lattes take whip except (caffe latte, vanilla latte)",
+                      ),
+                      TextCard("all iced mochas take whip"),
+                      LattesDrinksSection(),
+                    ],
+                  ),
+                ),
+                MacchiatosSection(),
+              ],
+            ),
           ),
-          CupSizeChanges(),
-          TextCard(
-            "Anything Iced is poured to the 3rd line > ice is added",
-          ),
-          TextCard(
-            "2% milk EXCEPT whole milk for fraps",
-          ),
-          ShotsAndSyrups(),
-          SkinnyVersion(),
-          MinusPumps(),
-          LattesDrinksSection(),
-          MacchiatosSection(),
           FrapSection(),
-          TeaLatteSection(),
+          Card(
+            color: Colors.black,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                TextCard("Anything using tea bags [2]/2"),
+                HotTeaSection(),
+                TeaLatteSection(),
+              ],
+            ),
+          ),
           ColdBrewSection(),
           IcedTeaSection(),
           RefresherSection(),
@@ -360,6 +404,74 @@ class FrapSection extends StatelessWidget {
   }
 }
 
+class HotTeaSection extends StatelessWidget {
+  const HotTeaSection({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new BasicSection(
+      name: "Hot Tea",
+      onTap: makeSnackBar(
+        context,
+        "All With Tea Bags"
+      ),
+      items: [
+        //lemonade and honey
+        "Honey Citrus Mint Tea\n"
+        + "Citrus Defender",
+        //other
+        "Other"
+      ],
+      colors: [
+        Colors.yellow,
+        Colors.grey,
+      ],
+      onTaps: [
+        makeSnackBar(
+          context, 
+          "- 1/1/[2]/2 honey\n"
+          + "- lemonade"
+        ),
+        makePopUp(
+          context, 
+          Container(
+            padding: EdgeInsets.all(16),
+            color: Colors.black,
+            child: Text(
+              "Plain Hot Teas",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ), 
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 8,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text("\nTeavana Chai Tea\n"),
+                Text("Earl Grey Black Tea\n"),
+                Text("Royal English Breakfast Black Tea\n"),
+                Text("Rev Up Wellness Brewed Tea\n"),
+                Text("Emperor's Cloud and Mist Green Tea\n"),
+                Text("Jade Citrus Mint Brewed Tea\n"),
+                Text("Mint Majesty Herbal Tea\n"),
+                Text("Peach Tranquility Herbal Tea\n"),
+                Text("Comfort Wellness Brewed Tea\n"),
+                Text("Defense Wellness Brewed Tea\n"),
+              ],
+            ),
+          )
+        ),
+      ],
+    );
+  }
+}
+
 class TeaLatteSection extends StatelessWidget {
   const TeaLatteSection({
     Key key,
@@ -370,43 +482,45 @@ class TeaLatteSection extends StatelessWidget {
     return new BasicSection(
       name: "Tea Latte",
       onTap: makeSnackBar(
-        context, 
-        "[Hot / Iced]\n"
-        + "all with steamed milk"
+        context,
+        "For Hot Teas [4]\n"
+        + "For Cold Teas [4]/6"
       ),
       items: [
-        "London\nFog",
-        "Matcha\nGreen",
         "Chai",
+        "Matcha\nGreen",
+        "London\nFog",
         "Royal\nEnglish\nBreakfast"
       ],
       colors: [
-        Colors.grey, 
-        Colors.lightGreen,
         Colors.yellow,
+        Colors.lightGreen,
+        Colors.grey, 
         Colors.brown,
       ],
       onTaps: [
         makeSnackBar(
           context, 
-          "- 4 pumps vanilla\n"
-          + "- 2 tea bags [black]",
+          "Chai Tea Latte (water and milk)\n"
+          + "- chai pumps"
         ),
         makeSnackBar(
           context, 
-          "- 3 matcha powder\n"
-          + "- Lemonade Version",
+          "Match Green Tea Latte (milk)\n"
+          + "- [3] matcha powder\n"
+          + "* IF Matcha Lemonade (water and lemonade)",
         ),
         makeSnackBar(
           context, 
-          "- [4] / (hot 5 | cold 6) pumps chai\n"
-          + "- water",
+          "(Iced) London Fog Tea Latte (milk)\n"
+          + "- tea bags\n"
+          + "- vanilla syrup"
         ),
         makeSnackBar(
           context, 
-          "- 4 pumps liquid cane\n"
-          + "- 2 tea bags [black]\n"
-          + "- water",
+          "Royal English Breakfast Tea Latte  (water and milk)\n"
+          + "- tea bags\n"
+          + "- liquid cane syrup"
         ),
       ],
     );
@@ -421,45 +535,49 @@ class LattesDrinksSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new BasicSection(
-      name: "Lattes / Drinks\n"
-      + "(coffee / none)\n"
+      name: "Coffee / Non\n"
       + "[hot / iced]\n"
       + "w/ whip",
-      onTap: makeSnackBar(context, 'syrups > shots > milk to 87 degrees'),
+      onTap: makeSnackBar(
+        context, 
+        "Hot Pumps [4]\n"
+        + "Iced Pumps [4]/6\n"
+        + 'syrups > shots > milk to 87 degrees',
+      ),
       items: ["Mocha", "Pumpkin", "Cinnamon Dolce", "Vanilla", "Salted Caramel"],
       colors: [Colors.black, Colors.orange, Colors.brown, Colors.white, Colors.grey],
       onTaps: [
         makeSnackBar(
           context, 
           "[regular / white] (mocha / chocolate)\n"
-          + "- 4 [regular / white] mocha sauce\n"
+          + "- [regular / white] mocha sauce\n"
           + "- only for regular chocolate\n"
-          + "\t\t\t- 1 vanilla\n"
+          + "\t\t\t- [1]/2 vanilla\n"
           + "\t\t\t- mocha drizzle",
         ),
         makeSnackBar(
           context, 
           "Pumpkin spice (latte / creme)\n"
-          + "- 4 Pumpkin syrup\n"
+          + "- Pumpkin syrup\n" 
           + "- Pumpkin spice topping",
         ),
         makeSnackBar(
           context, 
           "Cinnamon dolce (latte / creme)\n"
-          + "- 4 Cinnamon dolce syrup\n"
+          + "- Cinnamon dolce syrup\n" 
           + "- Cinnamon dolce sprinkles",
         ),
         makeSnackBar(
           context, 
           "Vanilla (latte / creme)\n"
-          + "- 4 Vanilla syrup",
+          + "- Vanilla syrup", 
         ),
         makeSnackBar(
           context, 
           "Salted Caramel (mocha / chocolate)\n"
-          + "- 4 mocha sauce\n"
-          + "- 4 toffee nut syrup\n"
-          + "- 1 vanilla syrup (only for chocolate)\n"
+          + "- mocha sauce\n" 
+          + "- toffee nut syrup\n"
+          + "- [1]/2 vanilla syrup (only for HOT chocolate)\n"
           + "- caramel drizzle\n"
           + "- sea salt",
         ),
@@ -497,20 +615,20 @@ class MacchiatosSection extends StatelessWidget {
         makeSnackBar(
           context, 
           "Caramel\n"
-          + "- 3 vanilla pumps\n"
+          + "- [3] vanilla pumps\n"
           + "- caramel drizzle",
         ),
         makeSnackBar(
           context, 
           "Cocoa Cloud\n"
-          + "- 2 toffee nut (blonde 1)\n"
+          + "- [2]/2 toffee nut\n"
           + "- caramel drizzle\n"
           + "- mocha drizzle",
         ),
         makeSnackBar(
           context, 
           "Caramel Cloud\n"
-          + "- 2 vanilla (blonde 1)\n"
+          + "- [2]/2 vanilla\n"
           + "- caramel drizzle",
         ),
       ],
@@ -550,7 +668,7 @@ class IcedTeaSection extends StatelessWidget {
     return new BasicSection(
       name: "Iced Tea",
       onTap: makeSnackBar(context, 
-      "[4] / 6 pumps liquid cane sugar\n"
+      "[4]/6 pumps liquid cane sugar\n"
       "Juice Blend (none / peach / guava / blueberry) > Tea > (water / lemonade)",
       ),
       //black, green, passion tango, white
