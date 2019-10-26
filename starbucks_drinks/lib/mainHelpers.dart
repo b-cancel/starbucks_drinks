@@ -206,6 +206,7 @@ class FrapSection extends StatelessWidget {
 
     //build
     return new BasicSection(
+      simple: simple,
       name: "Fraps",
       onTap: makeSnackBar(
         context, 
@@ -219,7 +220,7 @@ class FrapSection extends StatelessWidget {
         + "- Chai\n"
         + "- Match Green Tea",
       ],
-      colors: [Colors.brown, Colors.yellow],
+      colors: [Colors.black, Colors.yellow],
       onTaps: [
         (){
           Navigator.push(
@@ -553,11 +554,15 @@ class IcedTeaSection extends StatelessWidget {
 class ColdBrewSection extends StatelessWidget {
   const ColdBrewSection({
     Key key,
+    this.simple: false,
   }) : super(key: key);
+
+  final bool simple;
 
   @override
   Widget build(BuildContext context) {
     return new BasicSection(
+      simple: simple,
       name: "Cold Brew",
       onTap: makeSnackBar(context, 
       "Cold Brew (iced) / Nitro Cold Brew (not iced)"

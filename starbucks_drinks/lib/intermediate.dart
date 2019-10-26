@@ -14,10 +14,50 @@ class Intermediate extends StatelessWidget {
       children: <Widget>[
         CoffeeSection(),
         MacchiatoSection(),
-        FrapSection(
-          simple: true,
+        Card(
+          color: Colors.brown,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Title(
+                title: Text(
+                  "Frappuccino [3]",
+                ),
+              ),
+              WhiteLine(),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "[3] w/ Exceptions [2]/2\n"
+                    + "- pumpkin spice\n"
+                    + "- salted caramel (mocha/toffee)"
+                  ),
+                ),
+              ),
+              FrapSection(
+                simple: true,
+              ),
+            ],
+          ),
         ),
-        ColdBrewSection(), //TODO
+        Card(
+          color: Colors.brown,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Title(
+                title: Text(
+                  "Cold Brew",
+                ),
+              ),
+              WhiteLine(),
+              ColdBrewSection(
+                simple: true,
+              ),
+            ],
+          ),
+        ),
         Teas(),
       ],
     );
@@ -36,28 +76,12 @@ class MacchiatoSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 8.0,
-              right: 8,
-              top: 8,
-            ),
-            child: Text(
+          Title(
+            title: Text(
               "Macchiatos",
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Container(
-              height: 2,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.white,
-            ),
-          ),
+          WhiteLine(),
           IntrinsicHeight(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -151,6 +175,33 @@ class MacchiatoSection extends StatelessWidget {
   }
 }
 
+class Title extends StatelessWidget {
+  const Title({
+    Key key,
+    @required this.title,
+  }) : super(key: key);
+
+  final Widget title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 8.0,
+        right: 8,
+        top: 8,
+      ),
+      child: DefaultTextStyle(
+        style: TextStyle(
+          fontSize: 24,
+          color: Colors.white,
+        ),
+        child: title,
+      ),
+    );
+  }
+}
+
 class Teas extends StatelessWidget {
   const Teas({
     Key key,
@@ -158,25 +209,39 @@ class Teas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: Row(
+    return Card(
+      color: Colors.brown,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          TeaButton(
-            snackbar: "Honey and Lemonade\n"
-            + "- Honey Citrus Mint Tea\n"
-            + "- Citrus Defender", 
-            isHot: true, 
-            subtitle: "B&H: [2]/2", 
+          Title(
+            title: Text(
+              "Teas",
+            ),
           ),
-          TeaButton(
-            snackbar: "[4]/6 Liquid Cane Sugar\n"
-            + "1. none/peach/guava/blueberry\n"
-            + "2. black/green/passion tango/white\n"
-            + "3. water/lemonade",
-            isHot: false,
-            subtitle: "LCS: [4]/6",
-          )
+          WhiteLine(),
+          Material(
+            color: Colors.transparent,
+            child: Row(
+              children: <Widget>[
+                TeaButton(
+                  snackbar: "Honey and Lemonade\n"
+                  + "- Honey Citrus Mint Tea\n"
+                  + "- Citrus Defender", 
+                  isHot: true, 
+                  subtitle: "B&H: [2]/2", 
+                ),
+                TeaButton(
+                  snackbar: "[4]/6 Liquid Cane Sugar\n"
+                  + "1. none/peach/guava/blueberry\n"
+                  + "2. black/green/passion tango/white\n"
+                  + "3. water/lemonade",
+                  isHot: false,
+                  subtitle: "LCS: [4]/6",
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -207,23 +272,12 @@ class TeaButton extends StatelessWidget {
           color: (isHot) ? Colors.red : Colors.blue,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: <Widget>[
-                Text(
-                  (isHot) ? "Hot" : "Cold" + " Teas",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
+            child: Text(
+              subtitle,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
             ),
           ),
         ),
@@ -244,34 +298,36 @@ class CoffeeSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 8.0,
-              right: 8,
-              top: 8,
-            ),
-            child: Text(
+          Title(
+            title: Text(
               "Coffee/Drinks [4]/(6 iced)",
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Container(
-              height: 2,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.white,
-            ),
-          ),
+          WhiteLine(),
           NoWhip(),
           ShotsAndPumps(),
           LattesDrinksSection(
             simple: true,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class WhiteLine extends StatelessWidget {
+  const WhiteLine({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Container(
+        height: 2,
+        width: MediaQuery.of(context).size.width,
+        color: Colors.white,
       ),
     );
   }
@@ -334,9 +390,11 @@ class NoWhip extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: <Widget>[
+            Text("NO"),
             Padding(
               padding: EdgeInsets.only(
                 right: 8,
+                left: 8,
               ),
               child: Icon(FontAwesomeIcons.poop),
             ),

@@ -95,19 +95,28 @@ class CoffeeAndCreme extends StatelessWidget {
           TextCard(
             "Only Coffee [roast > coffee]"
           ),
-          MyListTile(
+          Card(
             color: Colors.brown,
-            title: "Coffee", 
-            subtitle: "- No Pumps\n"
-            + "- NO WHIP",
-            whiteText: true,
+            child: Container(
+              padding: EdgeInsets.all(8),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 8,
+                ),
+                child: Text(
+                  "Coffee",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
           ),
           MyListTile(
             color: Colors.black, 
             title: "Espresso", 
-            subtitle: "- No Pumps\n"
-            + "- always 1 shot expresso\n"
-            + "- NO WHIP",
+            subtitle: "- always 1 shot expresso",
             whiteText: true,
           ),
           MyListTile(
