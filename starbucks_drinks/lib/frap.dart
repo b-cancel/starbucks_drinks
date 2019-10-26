@@ -1,50 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:starbucks_drinks/main.dart';
-
-class OnlyCreme extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        automaticallyImplyLeading: false,
-        title: Text(
-          "Only Creme Frap",
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
-      body: ListView(
-        children: <Widget>[
-          MyListTile(
-            color: Colors.red, 
-            title: "Strawberry", 
-            subtitle: "- strawberry purre in mix, and on top",
-          ),
-          MyListTile(
-            color: Colors.amber, 
-            title: "Chai", 
-            subtitle: "- [2]/2 pumps chai\n"
-              + "- cinnamon powder",
-          ),
-          MyListTile(
-            color: Colors.lightGreen, 
-            title: "Match Green Tea", 
-            subtitle: "- [3] pumps classic\n"
-              + "- [3] scoops matcha powder"
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.of(context).pop();
-        },
-        child: Icon(Icons.arrow_back),
-      ),
-    );
-  }
-}
+import 'package:starbucks_drinks/mainHelpers.dart';
 
 class MyListTile extends StatelessWidget {
   const MyListTile({
@@ -164,7 +119,7 @@ class CoffeeAndCreme extends StatelessWidget {
           MyListTile(
             color: Color(0xFFF3E5AB), 
             title: "Caramel Ribbon Crunch", 
-            subtitle: "- NO PUMPS CARAMEL\n"
+            subtitle: "- [3] DARK caramel\n"
             + "- caramel drizzle\n"
             + "- caramel crunch topping",
           ),

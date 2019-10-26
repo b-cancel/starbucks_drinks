@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class BasicSection extends StatelessWidget {
   const BasicSection({
     Key key,
-    @required this.name,
-    @required this.onTap,
+    this.simple: false,
+    this.name,
+    this.onTap,
     @required this.items,
     @required this.colors,
     @required this.onTaps,
   }) : super(key: key);
   
+  final bool simple;
   final String name;
   final Function onTap;
   final List<String> items;
@@ -21,21 +23,23 @@ class BasicSection extends StatelessWidget {
     List<Widget> itemsInRow = List<Widget>();
 
     //add title
-    itemsInRow.add(
-      Center(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 8,
-          ),
-          child: Text(
-            name,
-            style: TextStyle(
-              color: Colors.black,
+    if(simple == false){
+      itemsInRow.add(
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 8,
+            ),
+            child: Text(
+              name,
+              style: TextStyle(
+                color: Colors.black,
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    }
 
     //add items
     for(int i = 0; i < items.length; i++){
@@ -48,17 +52,23 @@ class BasicSection extends StatelessWidget {
       );
     }
 
+    Widget buttons = IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: itemsInRow,
+      ),
+    );
+
+    if(simple == false){
+      buttons = InkWell(
+        onTap: () => onTap(),
+        child: buttons,
+      );
+    }
+
     //build
     return Card(
-      child: InkWell(
-        onTap: () => onTap(),
-        child: IntrinsicHeight(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: itemsInRow,
-          ),
-        ),
-      ),
+      child: buttons,
     );
   }
 }
